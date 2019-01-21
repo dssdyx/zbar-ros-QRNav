@@ -1,0 +1,7 @@
+<library path="lib/libzbar_opencv_nodelet">
+  <class name="zbar_opencv/QRcodeREADNodelet" type="zbar_opencv::QRcodeREADNodelet" base_class_type="nodelet::Nodelet">
+  <description>
+  It can be used as a QRcode detector.
+  </description>
+  </class>
+</library>

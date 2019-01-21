@@ -1,0 +1,15 @@
+<launch>
+    <node pkg="nodelet" type="nodelet" name="standalone_nodelet"  args="manager" output="screen"/>
+    <node pkg="nodelet" type="nodelet" name="QRcodeREADNodelet" args="load zbar_opencv/QRcodeREADNodelet standalone_nodelet"
+    output="screen"/>
+    <node pkg="nodelet" type="nodelet" name="uvc_camera" args="load uvc_camera/CameraNodelet standalone_nodelet"
+    output="screen">
+      <param name="width" type="int" value="320" />
+      <param name="height" type="int" value="240" />
+      <param name="fps" type="int" value="50" />
+      <param name="auto_exposure" type="bool" value="false" />
+      <param name="exposure_absolute" type="int" value="30" />
+      <param name="device" type="string" value="/dev/video1" />
+      <remap from="/image_raw/compressed" to="/image_bin/compressed"/>
+    </node>
+</launch>
